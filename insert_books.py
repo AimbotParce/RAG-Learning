@@ -116,7 +116,6 @@ if __name__ == "__main__":
 
     # Load the environment variables
     load_dotenv()
-    openai.api_key = os.getenv("EMBEDDING_KEY")
     client = chromadb.PersistentClient()
     collection = client.get_or_create_collection("books")
     PipelineCache.namespace = args.books.stem
