@@ -134,6 +134,8 @@ if __name__ == "__main__":
     embeddings = itertools.chain.from_iterable(embeddings)  # Flatten the embeddings
 
     for (j, book), embedding in tqdm(zip(books.iterrows(), embeddings), total=len(books), leave=False):
-        book = book.to_dict()
-        book_id = f"{book['BookTitle']} - {book['Author']}"
-        collection.add(ids=book_id, embeddings=embedding, metadatas=book)
+        book: dict[str, str] = book.to_dict()
+        title = book["BookTitle"]
+        author = book["Author"] if not pd.isna(book["Author"]) else "Unknown"
+        book_id = f"{title} - {author}"
+        collection.add(ids=book_id, embeddings=embedding, metadatas=book, uris=title)

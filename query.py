@@ -1,15 +1,9 @@
 import argparse
-import itertools
-import json
 import os
-from collections import defaultdict
-from hashlib import md5
-from pathlib import Path
-from typing import Any, Callable, Iterable, Iterator, List
+from typing import List
 
 import chromadb
 import openai
-import pandas as pd
 from dotenv import load_dotenv
 
 
