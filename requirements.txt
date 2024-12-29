@@ -1,0 +1,5 @@
+pandas
+openai
+crhomadb
+python-dotenv
+tqdm
